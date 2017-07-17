@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $titulo or 'Painel Curso' }}</title>
 
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="{{url('/assets/painel/css/style.css')}}">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('/assets/css/bootstrap.min.css')}}">
     <!-- Optional theme -->

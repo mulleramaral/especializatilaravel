@@ -10,8 +10,7 @@
 
         <div>
             <a class="btn btn-success" href="{{url('/produto')}}">
-                <i class="glyphicon glyphicon-backward"></i>
-            </a>
+                <i class="glyphicon glyphicon-backward"></i></a>
         </div>
     </div>
 
@@ -23,14 +22,19 @@
         </div>
     @endif
 
-    <form class="form" action="/produto" method="post">
+    @if(isset($produto->id))
+        <form class="form" method="post" action="/produto/{{$produto->id}}">
+        {{method_field('PUT')}}
+    @else
+        <form class="form" method="POST" action="/produto">
+    @endif
         {!! csrf_field() !!}
         <div class="form-group">
-            <input type="text" name="nome" placeholder="Insira o nome" class="form-control">
+            <input type="text" name="nome" placeholder="Insira o nome" class="form-control" value="{{ isset($produto->nome) ? $produto->nome : old('nome')}}">
         </div>
 
         <div class="form-group">
-            <input type="text" name="codigo" placeholder="Insira o codigo" class="form-control">
+        <input type="text" name="codigo" placeholder="Insira o codigo" class="form-control" value="{{ isset($produto->codigo) ? $produto->codigo : old('codigo')}}">
         </div>
 
         <div class="form-group">
